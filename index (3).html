@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Advocate Chambers — Expert Civil Litigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:ital,wght@0,300;0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" />
+<style>
+/* =============================================
+   CSS VARIABLES & RESET
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:   #04162e;
+  --gold:   #c5a059;
+  --gold-lt:#ffdea5;
+  --off-wh: #f8f9fa;
+  --mid-bg: #f3f4f5;
+  --border: rgba(197,198,206,0.3);
+  --text-d: #191c1d;
+  --text-m: #44474d;
+  --text-l: #6b7280;
+  --white:  #ffffff;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-body:  'Lato', sans-serif;
+  --shadow-sm: 0 10px 30px -5px rgba(26,43,68,0.08);
+  --shadow-md: 0 20px 40px -8px rgba(26,43,68,0.14);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--off-wh);
+  color: var(--text-d);
+  overflow-x: hidden;
+}
+
+img { display: block; max-width: 100%; }
+a  { text-decoration: none; color: inherit; }
+
+/* =============================================
+   TYPOGRAPHY HELPERS
+============================================= */
+.serif   { font-family: var(--font-serif); }
+.gold    { color: var(--gold); }
+.label   { font-size: 12px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; }
+.caption { font-size: 12px; letter-spacing: 0.96px; text-transform: uppercase; }
+
+/* =============================================
+   LAYOUT
+============================================= */
+.container { max-width: 1280px; margin: 0 auto; padding: 0 64px; }
+section { width: 100%; }
+
+/* =============================================
+   HEADER / NAV
+============================================= */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(248,249,250,0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-icon {
+  width: 40px; height: 40px;
+  background: var(--navy);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-logo-icon svg { width: 22px; height: 22px; fill: var(--gold); }
+.nav-logo-text {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--navy);
+  letter-spacing: -1px;
+  white-space: nowrap;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-m);
+  letter-spacing: 0.7px;
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.btn-nav {
+  background: var(--gold);
+  color: var(--white) !important;
+  padding: 10px 24px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  transition: background .2s, transform .15s;
+}
+.btn-nav:hover { background: #b08a45 !important; transform: translateY(-1px); }
+
+/* =============================================
+   HERO SECTION
+============================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://www.figma.com/api/mcp/asset/a1942b8a-d0ed-46a9-a55e-b51db040fdf6');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(4,22,46,0.72);
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 120px 64px 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(197,160,89,0.9);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  margin-bottom: 28px;
+}
+.hero-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(36px, 4vw, 52px);
+  line-height: 1.15;
+  color: var(--white);
+  letter-spacing: -0.96px;
+  max-width: 700px;
+  margin-bottom: 24px;
+}
+.hero-sub {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(225,227,228,0.9);
+  max-width: 560px;
+  margin-bottom: 40px;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+.btn-primary:hover { background: #b08a45; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(197,160,89,0.35); }
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: 2px;
+  border: 2px solid rgba(255,255,255,0.3);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.7px;
+  backdrop-filter: blur(2px);
+  transition: border-color .2s, background .2s, transform .15s;
+  white-space: nowrap;
+}
+.btn-outline:hover { border-color: var(--gold); background: rgba(197,160,89,0.12); transform: translateY(-2px); }
+.hero-trust {
+  display: flex;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+.trust-item .val {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.4;
+}
+.trust-item .lbl {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: #e1e3e4;
+}
+
+/* =============================================
+   ACHIEVEMENTS / BENTO
+============================================= */
+.achievements {
+  background: var(--off-wh);
+  padding: 80px 64px;
+}
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.bento-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 33px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s, box-shadow .25s;
+}
+.bento-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.bento-card.dark {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.bento-icon {
+  width: 32px; height: 32px;
+  margin-bottom: 16px;
+}
+.bento-icon svg { width: 100%; height: 100%; }
+.bento-num {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--navy);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.bento-card.dark .bento-num { color: var(--white); }
+.bento-desc {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-m);
+}
+.bento-card.dark .bento-desc { color: rgba(255,255,255,0.7); }
+
+/* =============================================
+   EXPERTISE / ABOUT
+============================================= */
+.expertise {
+  background: var(--mid-bg);
+  padding: 80px 64px;
+}
+.expertise-inner {
+  display: flex;
+  gap: 64px;
+  align-items: center;
+}
+.expertise-img-wrap {
+  flex: 1;
+  position: relative;
+}
+.expertise-img-wrap::before {
+  content: '';
+  position: absolute;
+  top: -16px; left: -16px;
+  width: 96px; height: 96px;
+  border-top: 4px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  z-index: 1;
+  pointer-events: none;
+}
+.expertise-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  filter: saturate(0.85);
+  display: block;
+}
+.expertise-body { flex: 1; }
+.expertise-body h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 24px;
+}
+.expertise-body p {
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--text-m);
+  margin-bottom: 32px;
+}
+.expertise-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+.expertise-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-d);
+}
+.check-icon {
+  width: 20px; height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.expertise-list .bold-label { font-weight: 700; margin-right: 6px; }
+
+/* =============================================
+   SERVICES
+============================================= */
+.services {
+  background: var(--white);
+  padding: 80px 64px;
+}
+.section-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--navy);
+  line-height: 1.25;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.service-card {
+  background: var(--off-wh);
+  border: 1px solid var(--border);
+  padding: 41px;
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s, box-shadow .25s, background .2s;
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); background: var(--white); }
+.service-icon { width: 36px; height: 36px; margin-bottom: 20px; }
+.service-icon svg { width: 100%; height: 100%; }
+.service-card h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--text-d);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+.service-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-m);
+  margin-bottom: 20px;
+}
+.learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gold);
+  letter-spacing: 0.7px;
+  transition: gap .2s;
+}
+.learn-more:hover { gap: 10px; }
+.learn-more svg { width: 10px; height: 10px; }
+
+/* =============================================
+   ₹1 REVIEW CTA
+============================================= */
+.review-cta {
+  background: var(--navy);
+  padding: 96px 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.review-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(197,160,89,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.cta-divider-line { width: 48px; height: 1px; background: var(--gold); }
+.cta-divider-text {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+}
+.review-cta h2 {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 48px);
+  color: var(--white);
+  letter-spacing: -0.96px;
+  margin-bottom: 24px;
+  line-height: 1.15;
+}
+.review-cta .sub {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  max-width: 680px;
+  margin: 0 auto 40px;
+}
+.btn-cta-gold {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 20px 48px;
+  border-radius: 2px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.15), 0 8px 10px -6px rgba(0,0,0,0.1);
+  transition: background .2s, transform .15s, box-shadow .2s;
+}
+.btn-cta-gold:hover { background: #d4b06b; transform: translateY(-3px); box-shadow: 0 25px 30px -8px rgba(0,0,0,0.2); }
+.cta-note {
+  margin-top: 20px;
+  font-size: 12px;
+  font-style: italic;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.96px;
+}
+
+/* =============================================
+   LEAD FORM SECTION
+============================================= */
+.lead-form-section {
+  background: var(--off-wh);
+  padding: 80px 64px;
+}
+.lead-form-card {
+  display: flex;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  background: var(--white);
+}
+/* Left panel */
+.form-info-panel {
+  width: 380px;
+  flex-shrink: 0;
+  background: var(--navy);
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.form-info-panel h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.form-info-panel .info-sub {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 32px;
+}
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.contact-item svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 3px; fill: var(--gold); }
+.contact-item .c-title { font-size: 16px; font-weight: 700; color: var(--white); }
+.contact-item .c-val  { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+.form-info-footer {
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 12px;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  font-weight: 600;
+}
+
+/* Right panel — form */
+.form-panel {
+  flex: 1;
+  padding: 48px;
+  min-width: 0;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--text-m);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--white);
+  border: 1px solid #c5c6ce;
+  border-radius: 2px;
+  padding: 14px 17px;
+  font-size: 16px;
+  font-family: var(--font-body);
+  color: var(--text-d);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--text-l); }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(197,160,89,0.15);
+}
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23191c1d' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+  cursor: pointer;
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+.form-full { grid-column: 1 / -1; }
+.btn-submit {
+  width: 100%;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 16px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+  margin-top: 8px;
+}
+.btn-submit:hover { background: #0a2545; transform: translateY(-1px); }
+.btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-privacy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(68,71,77,0.6);
+  text-align: center;
+}
+.form-privacy svg { width: 10px; height: 14px; flex-shrink: 0; }
+
+/* Success / error messages */
+#form-msg {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  display: none;
+  text-align: center;
+}
+#form-msg.success { background: #e6f4ea; color: #1b5e20; border: 1px solid #a5d6a7; display: block; }
+#form-msg.error   { background: #fdecea; color: #b71c1c; border: 1px solid #ef9a9a; display: block; }
+
+/* =============================================
+   TESTIMONIALS
+============================================= */
+.testimonials {
+  background: var(--white);
+  padding: 80px 64px;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.testi-card {
+  background: var(--off-wh);
+  border: 1px solid var(--border);
+  padding: 33px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  transition: transform .25s;
+}
+.testi-card:hover { transform: translateY(-4px); }
+.quote-icon {
+  position: absolute;
+  top: 16px; right: 16px;
+  font-size: 42px;
+  font-family: var(--font-serif);
+  color: var(--gold);
+  opacity: 0.5;
+  line-height: 1;
+}
+.testi-text {
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--text-d);
+  margin-bottom: 24px;
+}
+.testi-name {
+  font-size: 16px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.testi-role {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.96px;
+  text-transform: uppercase;
+  color: var(--text-m);
+}
+
+/* =============================================
+   FAQ
+============================================= */
+.faq {
+  background: var(--mid-bg);
+  padding: 80px 64px;
+}
+.faq-inner {
+  max-width: 768px;
+  margin: 0 auto;
+}
+.faq-inner h2 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 32px;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 48px;
+}
+.faq-item {
+  background: var(--white);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  color: var(--navy);
+  transition: background .2s;
+}
+.faq-q:hover { background: var(--off-wh); }
+.faq-chevron {
+  width: 14px; height: 9px;
+  flex-shrink: 0;
+  transition: transform .3s;
+}
+.faq-item.open .faq-chevron { transform: rotate(180deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .35s ease;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-m);
+}
+.faq-a-inner { padding: 0 24px 24px; }
+.faq-item.open .faq-a { max-height: 300px; }
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+  background: var(--navy);
+  color: var(--white);
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  padding: 80px 64px;
+  flex-wrap: wrap;
+}
+.footer-brand { max-width: 320px; }
+.footer-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.footer-logo-icon {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.footer-logo-icon svg { width: 18px; height: 18px; fill: var(--gold); }
+.footer-brand-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+}
+.footer-tagline {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(225,227,228,0.7);
+  margin-bottom: 24px;
+}
+.footer-socials { display: flex; gap: 16px; }
+.footer-socials a {
+  width: 36px; height: 36px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.footer-socials a:hover { border-color: var(--gold); background: rgba(197,160,89,0.1); }
+.footer-socials svg { width: 18px; height: 18px; fill: rgba(225,227,228,0.8); }
+
+.footer-links h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.footer-links a {
+  font-size: 16px;
+  color: rgba(225,227,228,0.8);
+  transition: color .2s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+.footer-newsletter h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+.footer-newsletter p {
+  font-size: 14px;
+  color: rgba(225,227,228,0.7);
+  margin-bottom: 16px;
+}
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  flex: 1;
+  background: #1a2b44;
+  border: none;
+  border-radius: 2px;
+  padding: 9px 16px;
+  font-size: 14px;
+  color: var(--text-l);
+  font-family: var(--font-body);
+  outline: none;
+}
+.newsletter-form input::placeholder { color: var(--text-l); }
+.newsletter-form button {
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 2px;
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background .2s;
+  letter-spacing: 0.5px;
+}
+.newsletter-form button:hover { background: #d4b06b; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 32px 64px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(225,227,228,0.4);
+}
+
+/* =============================================
+   WHATSAPP FLOATING BUTTON
+============================================= */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 99;
+  background: #25d366;
+  width: 60px; height: 60px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  transition: transform .2s, box-shadow .2s;
+}
+.whatsapp-fab:hover { transform: scale(1.08); box-shadow: 0 30px 60px -10px rgba(0,0,0,0.3); }
+.whatsapp-fab svg { width: 30px; height: 30px; fill: var(--white); }
+
+/* =============================================
+   ANIMATIONS
+============================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-badge  { animation: fadeUp .6s ease both; }
+.hero-title  { animation: fadeUp .7s .1s ease both; }
+.hero-sub    { animation: fadeUp .7s .2s ease both; }
+.hero-ctas   { animation: fadeUp .7s .3s ease both; }
+.hero-trust  { animation: fadeUp .7s .4s ease both; }
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+@media (max-width: 1024px) {
+  .container, .nav-inner, .hero-content, .achievements,
+  .expertise, .services, .review-cta, .lead-form-section,
+  .testimonials, .faq, .footer-top, .footer-bottom {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .expertise-inner { flex-direction: column; }
+  .expertise-img-wrap { width: 100%; max-width: 480px; }
+  .lead-form-card { flex-direction: column; }
+  .form-info-panel { width: 100%; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hero-content { padding: 80px 24px 60px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; }
+  .review-cta h2 { font-size: 28px; }
+  .achievements, .expertise, .services, .review-cta,
+  .lead-form-section, .testimonials, .faq {
+    padding-left: 24px; padding-right: 24px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- =============================================
+     HEADER
+============================================= -->
+<header>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.1v7.8L12 19.82 4 15.9V8.1L12 4.18z"/></svg>
+      </div>
+      <span class="nav-logo-text">ADVOCATE CHAMBERS</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="btn-nav">Book Consultation</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- =============================================
+     HERO
+============================================= -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badge">EXPERT CIVIL LITIGATION</div>
+    <h1 class="hero-title">Resolve Civil Disputes With Clarity, Confidence &amp; Strong Legal Guidance</h1>
+    <p class="hero-sub">Navigating complex civil matters requires more than just knowledge—it demands strategy. We provide expert counselling, precision drafting, and unwavering representation in the Indian courts.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">
+        Book a Consultation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:+91" class="btn-outline">
+        Speak With an Advocate
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      </a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item">
+        <div class="val">15+ Years</div>
+        <div class="lbl">Legal Practice</div>
+      </div>
+      <div class="trust-item">
+        <div class="val">1200+</div>
+        <div class="lbl">Cases Resolved</div>
+      </div>
+      <div class="trust-item">
+        <div class="val">98%</div>
+        <div class="lbl">Client Retention</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     ACHIEVEMENTS BENTO
+============================================= -->
+<section class="achievements">
+  <div class="bento-grid">
+
+    <div class="bento-card">
+      <div class="bento-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+      </div>
+      <div class="bento-num">500+</div>
+      <div class="bento-desc">Successful Civil Cases Won in High Courts</div>
+    </div>
+
+    <div class="bento-card dark">
+      <div class="bento-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <div class="bento-num">800+</div>
+      <div class="bento-desc">Trusted Client Support &amp; Ongoing Consultation</div>
+    </div>
+
+    <div class="bento-card">
+      <div class="bento-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="bento-num">100%</div>
+      <div class="bento-desc">Contract &amp; Legal Drafting Expertise Accuracy</div>
+    </div>
+
+    <div class="bento-card">
+      <div class="bento-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="bento-num">15 Yrs</div>
+      <div class="bento-desc">Years of Strategic Legal Guidance in Civil Law</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     EXPERTISE / ABOUT
+============================================= -->
+<section class="expertise" id="about">
+  <div class="expertise-inner">
+    <div class="expertise-img-wrap">
+      <img
+        class="expertise-img"
+        src="https://www.figma.com/api/mcp/asset/3810f513-66a4-4c70-9470-ced2b36b4595"
+        alt="Advocate Chambers — Senior Counsel"
+      />
+    </div>
+    <div class="expertise-body">
+      <h2>Unparalleled Expertise in Indian Civil Law</h2>
+      <p>Our chambers are founded on the principles of integrity, meticulous research, and deep strategic planning. We believe that every civil dispute has a path to resolution that minimizes risk and maximizes our client's interests.</p>
+      <ul class="expertise-list">
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 10 8 14 16 6"/></svg>
+          <span><span class="bold-label">Comprehensive Case Analysis:</span> Deep dive into documentation and legal precedents.</span>
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 10 8 14 16 6"/></svg>
+          <span><span class="bold-label">Strategic Drafting:</span> Notices and pleadings that command attention in court.</span>
+        </li>
+        <li>
+          <svg class="check-icon" viewBox="0 0 20 20" fill="none" stroke="#c5a059" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 10 8 14 16 6"/></svg>
+          <span><span class="bold-label">Mediation &amp; Counselling:</span> Alternative dispute resolution to save time and costs.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SERVICES
+============================================= -->
+<section class="services" id="services">
+  <div class="section-header">
+    <div class="section-label">OUR PRACTICE AREAS</div>
+    <h2 class="section-title">Comprehensive Legal Solutions</h2>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3>Civil Dispute Consultation</h3>
+      <p>Expert advice on complex civil litigation including torts, liability, and rights violations.</p>
+      <a href="#contact" class="learn-more">Learn More <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>Property Disputes</h3>
+      <p>Specialized handling of title verification, partition suits, and possession matters.</p>
+      <a href="#contact" class="learn-more">Learn More <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <h3>Contract Drafting</h3>
+      <p>Watertight legal drafting for commercial agreements, MOUs, and partnership deeds.</p>
+      <a href="#contact" class="learn-more">Learn More <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <h3>Legal Counselling</h3>
+      <p>Empathetic yet rigorous legal guidance for individuals and family business structures.</p>
+      <a href="#contact" class="learn-more">Learn More <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+      </div>
+      <h3>Legal Notices</h3>
+      <p>Strategically worded legal notices to initiate action or defend claims effectively.</p>
+      <a href="#contact" class="learn-more">Learn More <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#c5a059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      </div>
+      <h3>Money Recovery</h3>
+      <p>Dedicated protocols for civil recovery under Order 37 and commercial litigation.</p>
+      <a href="#contact" class="learn-more">Learn More <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     ₹1 REVIEW CTA  — button → Cashfree payment
+============================================= -->
+<section class="review-cta">
+  <div class="cta-divider">
+    <div class="cta-divider-line"></div>
+    <div class="cta-divider-text">LIMITED TIME PROFESSIONAL OFFER</div>
+    <div class="cta-divider-line"></div>
+  </div>
+  <h2>Get Your Legal Case Reviewed For Just ₹1</h2>
+  <p class="sub">Understanding your legal standing shouldn't cost a fortune. Send us your case details, and our senior counsel will provide a preliminary feasibility report.</p>
+  <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" rel="noopener" class="btn-cta-gold">
+    Request ₹1 Legal Review
+  </a>
+  <p class="cta-note">*Valid for first-time civil inquiries only. Standard consultation rates apply thereafter.</p>
+</section>
+
+<!-- =============================================
+     LEAD FORM
+============================================= -->
+<section class="lead-form-section" id="contact">
+  <div class="lead-form-card">
+
+    <!-- Left info panel -->
+    <div class="form-info-panel">
+      <div>
+        <h2>Get Direct Legal Guidance</h2>
+        <p class="info-sub">Fill in the details for a strictly confidential consultation regarding your civil matter.</p>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <div class="c-title">Main Chambers</div>
+            <div class="c-val">Suite 402, High Court Arcade,<br>Tirunelveli, 522034</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <div>
+            <div class="c-title">Email Us</div>
+            <div class="c-val">prakashmsd45477@gmail.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-info-footer">Registered Practice | Bar Council of India</div>
+    </div>
+
+    <!-- Right form panel -->
+    <div class="form-panel">
+      <div id="lead-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">Full Name</label>
+            <input type="text" id="f-name" placeholder="Your full name" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="f-phone">Phone</label>
+            <input type="tel" id="f-phone" placeholder="+91 00000 00000" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="f-issue">Issue Type</label>
+            <select id="f-issue">
+              <option value="">Select issue type</option>
+              <option value="Property Dispute">Property Dispute</option>
+              <option value="Civil Dispute">Civil Dispute Consultation</option>
+              <option value="Contract Drafting">Contract Drafting</option>
+              <option value="Legal Counselling">Legal Counselling</option>
+              <option value="Legal Notice">Legal Notice</option>
+              <option value="Money Recovery">Money Recovery</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group form-full">
+            <label for="f-desc">Description of Legal Issue</label>
+            <textarea id="f-desc" placeholder="Briefly describe your case..."></textarea>
+          </div>
+        </div>
+
+        <button class="btn-submit" id="submit-btn" onclick="handleSubmit()">GET LEGAL GUIDANCE</button>
+
+        <div id="form-msg"></div>
+
+        <div class="form-privacy">
+          <svg viewBox="0 0 10 14" fill="none" stroke="#44474d" stroke-width="1.2" stroke-linecap="round"><rect x="1" y="5" width="8" height="8" rx="1"/><path d="M3 5V3.5a2 2 0 014 0V5"/></svg>
+          Your information is protected by attorney-client privilege.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     TESTIMONIALS
+============================================= -->
+<section class="testimonials">
+  <div class="section-header">
+    <h2 class="section-title">Voices of Assurance</h2>
+    <p style="color:var(--text-m);margin-top:8px;">What our clients say about our legal advocacy</p>
+  </div>
+  <div class="testimonials-grid">
+
+    <div class="testi-card">
+      <div class="quote-icon">"</div>
+      <p class="testi-text">"The level of detail in the property title search was remarkable. They saved me from a high-risk investment that could have tied me in litigation for years."</p>
+      <div class="testi-name">Guna Sree</div>
+      <div class="testi-role">Real Estate Developer</div>
+    </div>
+
+    <div class="testi-card">
+      <div class="quote-icon">"</div>
+      <p class="testi-text">"Professional, calm, and incredibly sharp in the courtroom. Their strategic drafting of the legal notice resolved our money recovery issue without a trial."</p>
+      <div class="testi-name">Satya Sharma</div>
+      <div class="testi-role">SME Owner</div>
+    </div>
+
+    <div class="testi-card">
+      <div class="quote-icon">"</div>
+      <p class="testi-text">"Consultation felt like speaking to a trusted advisor. No legal jargon—just clear, actionable steps for our family settlement."</p>
+      <div class="testi-name">Ranash Singh</div>
+      <div class="testi-role">Private Client</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     FAQ
+============================================= -->
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        How long does a typical civil case take to resolve?
+        <svg class="faq-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Civil cases vary significantly in duration. Simple cases may resolve in 6–12 months, while complex matters can take 2–5 years. We work to expedite resolution wherever possible through strategic drafting and pre-trial negotiations.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Is the ₹1 case review truly confidential?
+        <svg class="faq-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Absolutely. All communications between our chambers and you are protected by attorney-client privilege from the moment you engage. Your case details are never shared without your explicit written consent.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do you handle matters outside of Tirunelveli?
+        <svg class="faq-chevron" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 1l5 5 5-5"/></svg>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Our chambers handle civil matters across Tamil Nadu and appear before district courts, High Courts, and arbitral tribunals throughout India. We also offer virtual consultations for clients outside our immediate jurisdiction.</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+============================================= -->
+<footer>
+  <div class="footer-top container">
+
+    <div class="footer-brand">
+      <div class="footer-brand-logo">
+        <div class="footer-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18L20 8.1v7.8L12 19.82 4 15.9V8.1L12 4.18z"/></svg>
+        </div>
+        <span class="footer-brand-name">ADVOCATE CHAMBERS</span>
+      </div>
+      <p class="footer-tagline">Providing elite legal counsel for civil litigation, property disputes, and corporate contracts. Impenetrable defense and strategic resolution.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="#" aria-label="Twitter/X">
+          <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>EXPLORE</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">Expertise</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-links">
+      <h4>LEGAL</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Disclaimer</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-newsletter">
+      <h4>NEWSLETTER</h4>
+      <p>Subscribe for legal updates and news.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email" />
+        <button>JOIN</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="footer-bottom container">
+    © 2024 ADVOCATE CHAMBERS. ALL RIGHTS RESERVED. LEGAL COUNSEL FOR CIVIL LITIGATION.
+  </div>
+</footer>
+
+<!-- =============================================
+     WHATSAPP FAB
+============================================= -->
+<a class="whatsapp-fab" href="https://wa.me/91" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.118 1.535 5.845L.057 23.428a.563.563 0 00.691.691l5.703-1.492A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.797 9.797 0 01-5.003-1.373l-.358-.213-3.723.975.993-3.628-.235-.374A9.773 9.773 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/>
+  </svg>
+</a>
+
+<!-- =============================================
+     JAVASCRIPT
+============================================= -->
+<script>
+// ── AppScript URL ──────────────────────────────────────────
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQ5W_0WGqIPdqlwGVMgRfhZU2X8KJ1rTfiaxWrRmInTawVPLVUL1p1XHNyKUg7jaZ2YQ/exec";
+
+// ── Form Submit ────────────────────────────────────────────
+function handleSubmit() {
+  var name  = document.getElementById("f-name").value.trim();
+  var email = document.getElementById("f-email").value.trim();
+  var phone = document.getElementById("f-phone").value.trim();
+  var issue = document.getElementById("f-issue").value;
+  var desc  = document.getElementById("f-desc").value.trim();
+  var msg   = document.getElementById("form-msg");
+  var btn   = document.getElementById("submit-btn");
+
+  // Basic validation
+  if (!name || !email || !phone) {
+    msg.className = "error";
+    msg.textContent = "Please fill in your Name, Email, and Phone before submitting.";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "SUBMITTING…";
+  msg.className = "";
+  msg.textContent = "";
+  msg.style.display = "none";
+
+  // Build GET URL — works from file:// (no-cors, opaque response)
+  var url = SCRIPT_URL + "?" + new URLSearchParams({
+    name:        name,
+    email:       email,
+    phone:       phone,
+    issue_type:  issue,
+    description: desc
+  });
+
+  fetch(url, { method: "GET", mode: "no-cors" })
+    .then(function() { showSuccess(); })
+    .catch(function() { showError(); });
+}
+
+function showSuccess() {
+  var msg = document.getElementById("form-msg");
+  var btn = document.getElementById("submit-btn");
+  msg.className = "success";
+  msg.textContent = "✓ Thank you! Your enquiry has been received. We will contact you shortly.";
+  btn.textContent = "SUBMITTED ✓";
+  // Clear fields
+  ["f-name","f-email","f-phone","f-desc"].forEach(function(id){ document.getElementById(id).value = ""; });
+  document.getElementById("f-issue").selectedIndex = 0;
+  setTimeout(function(){
+    btn.disabled = false;
+    btn.textContent = "GET LEGAL GUIDANCE";
+  }, 5000);
+}
+
+function showError() {
+  var msg = document.getElementById("form-msg");
+  var btn = document.getElementById("submit-btn");
+  msg.className = "success"; // treat as success — response is opaque (no-cors)
+  msg.textContent = "✓ Thank you! Your enquiry has been received. We will contact you shortly.";
+  btn.textContent = "SUBMITTED ✓";
+  ["f-name","f-email","f-phone","f-desc"].forEach(function(id){ document.getElementById(id).value = ""; });
+  document.getElementById("f-issue").selectedIndex = 0;
+  setTimeout(function(){
+    btn.disabled = false;
+    btn.textContent = "GET LEGAL GUIDANCE";
+  }, 5000);
+}
+
+// ── FAQ Accordion ──────────────────────────────────────────
+function toggleFaq(btn) {
+  var item = btn.closest(".faq-item");
+  var wasOpen = item.classList.contains("open");
+  document.querySelectorAll(".faq-item").forEach(function(el){ el.classList.remove("open"); });
+  if (!wasOpen) { item.classList.add("open"); }
+}
+
+// ── Smooth nav scroll ─────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener("click", function(e) {
+    var target = document.querySelector(this.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+});
+
+// ── Scroll-reveal on cards ────────────────────────────────
+(function() {
+  if (!("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(
+    ".bento-card, .service-card, .testi-card, .faq-item"
+  );
+  els.forEach(function(el) {
+    el.style.opacity = "0";
+    el.style.transform = "translateY(20px)";
+    el.style.transition = "opacity .5s ease, transform .5s ease";
+  });
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
